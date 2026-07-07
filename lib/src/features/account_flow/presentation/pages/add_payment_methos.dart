@@ -99,9 +99,7 @@ class _AddPaymentMethosState extends State<AddPaymentMethos> {
             SizedBox(height: 16),
             Row(
               children: [
-                SizedBox(
-                  height: 48,
-                  width: 225,
+                Expanded(
                   child: TextField(
                     style: GoogleFonts.poppins(color: AppColors.grey1),
                     controller: TextEditingController(),
@@ -124,9 +122,7 @@ class _AddPaymentMethosState extends State<AddPaymentMethos> {
                   ),
                 ),
                 SizedBox(width: 16),
-                SizedBox(
-                  height: 48,
-                  width: 225,
+                Expanded(
                   child: TextField(
                     style: GoogleFonts.poppins(color: AppColors.grey1),
                     controller: TextEditingController(),
@@ -149,6 +145,27 @@ class _AddPaymentMethosState extends State<AddPaymentMethos> {
                   ),
                 ),
               ],
+            ),
+            Spacer(),
+            Container(
+              height: 48,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: AppColors.accentGreen,
+                borderRadius: .circular(6),
+              ),
+              child: Row(
+                mainAxisAlignment: .center,
+                children: [
+                  Text(
+                    'Add Payment Method',
+                    style: GoogleFonts.poppins(
+                      color: AppColors.black,
+                      fontWeight: .bold,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
