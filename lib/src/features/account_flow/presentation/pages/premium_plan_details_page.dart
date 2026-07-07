@@ -25,7 +25,11 @@ class _PremiumPlansDetailsPageState extends State<PremiumPlanDetailsPage> {
           children: [
             Text(
               'Try Book Nexus\nPremmiun',
-              style: GoogleFonts.poppins(color: AppColors.white, fontSize: 32),
+              style: GoogleFonts.poppins(
+                color: AppColors.white,
+                fontSize: 32,
+                fontWeight: .bold,
+              ),
             ),
             SizedBox(height: 16),
             Text(

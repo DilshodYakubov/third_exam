@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
                     onTap: () {
                       context.push('${Pages.home}/${Pages.account}');
                     },
+                    borderRadius: .circular(100),
                     child: CircleAvatar(
                       radius: 24,
                       backgroundColor: AppColors.accentGreen,
