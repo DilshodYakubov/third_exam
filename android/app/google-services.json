@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "869624534707",
+    "project_id": "thirdexam",
+    "storage_bucket": "thirdexam.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869624534707:android:b70f5ee7075a1069e242c6",
+        "android_client_info": {
+          "package_name": "com.example.third_exam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJii_NeVR_sa_KyrnkulNLaLja1qWmJ9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
