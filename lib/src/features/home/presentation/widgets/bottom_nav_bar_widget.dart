@@ -28,8 +28,13 @@ class BottomNavBarWidget extends StatelessWidget {
     final accountPage = location.contains(Pages.account);
     final profilePage = location.contains(Pages.profile);
     final paymentPage = location.contains(Pages.payment);
+    final premiumPage = location.contains(Pages.premium);
     final hidePlayer =
-        hideOnThisTab || accountPage || profilePage || paymentPage;
+        hideOnThisTab ||
+        accountPage ||
+        profilePage ||
+        paymentPage ||
+        premiumPage;
     return Scaffold(
       body: navigationShell,
       bottomNavigationBar: Column(

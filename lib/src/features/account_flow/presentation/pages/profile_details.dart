@@ -103,6 +103,7 @@ class ProfileDetails extends StatelessWidget {
             ),
             SizedBox(height: 8),
             TextField(
+              style: GoogleFonts.poppins(color: AppColors.grey1),
               controller: TextEditingController(),
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
@@ -135,6 +136,7 @@ class ProfileDetails extends StatelessWidget {
             Text('Email', style: GoogleFonts.poppins(color: AppColors.grey1)),
             SizedBox(height: 8),
             TextField(
+              style: GoogleFonts.poppins(color: AppColors.grey1),
               controller: TextEditingController(),
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
@@ -170,6 +172,7 @@ class ProfileDetails extends StatelessWidget {
             ),
             SizedBox(height: 8),
             TextField(
+              style: GoogleFonts.poppins(color: AppColors.grey1),
               controller: TextEditingController(),
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(

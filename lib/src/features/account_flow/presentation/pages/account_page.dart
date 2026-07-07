@@ -90,7 +90,9 @@ class _AccountPageState extends State<AccountPage> {
                     style: TextButton.styleFrom(
                       backgroundColor: AppColors.accentGreen,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      context.push(Pages.premium);
+                    },
                     child: Text(
                       "Premuim",
                       style: GoogleFonts.poppins(color: AppColors.grey4),

@@ -10,13 +10,18 @@ class Pages {
   static const String library = '/library';
   static const String explore = '/explore';
   static const String home = '/home';
+  static const String audioPlayer = '/audio_player';
   //Home_pages------------------------------------------
   static const String detail = 'detail';
-  static const String audioPlayer = '/audio_player';
   static const String account = 'account';
   static const String profile = 'profile_details';
   static const String payment = 'payment';
   static const String addPayment = 'add_payment';
+  //Account_pages--------------------------------------------
+  static const String premium = '/premium';
+  static const String premiumDetails = '/premium_details';
+  static const String premiumAddpayment = 'premium_add_payment';
+
   //Explore_pages ------------------------------------------
   static const String productsListing = '/products_listing';
   static const String search = '/search';
