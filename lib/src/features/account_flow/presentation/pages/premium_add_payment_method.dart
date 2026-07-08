@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:third_exam/src/core/routes/pages.dart';
 import 'package:third_exam/src/core/theme/app_colors.dart';
 
 class PremiumAddPaymentMethod extends StatefulWidget {
@@ -126,24 +128,30 @@ class _PremiumAddPaymentMethodState extends State<PremiumAddPaymentMethod> {
               ],
             ),
             Spacer(),
-            Container(
-              height: 48,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: AppColors.accentGreen,
-                borderRadius: .circular(6),
-              ),
-              child: Row(
-                mainAxisAlignment: .center,
-                children: [
-                  Text(
-                    'Add Payment Method',
-                    style: GoogleFonts.poppins(
-                      color: AppColors.black,
-                      fontWeight: .bold,
+            InkWell(
+              borderRadius: .circular(100),
+              onTap: () {
+                context.push(Pages.premiumSelectCard);
+              },
+              child: Container(
+                height: 48,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: AppColors.accentGreen,
+                  borderRadius: .circular(6),
+                ),
+                child: Row(
+                  mainAxisAlignment: .center,
+                  children: [
+                    Text(
+                      'Confirm',
+                      style: GoogleFonts.poppins(
+                        color: AppColors.grey4,
+                        fontWeight: .bold,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],

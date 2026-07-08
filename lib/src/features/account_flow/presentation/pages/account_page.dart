@@ -123,7 +123,7 @@ class _AccountPageState extends State<AccountPage> {
               ),
               SizedBox(height: 24),
               AccountOptions(
-                icon: Icon(Icons.star, color: AppColors.accentGreen),
+                icon: Icon(Icons.star_outline, color: AppColors.accentGreen),
                 text: "Subscription",
                 ontap: () {},
               ),

@@ -3,15 +3,16 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:third_exam/src/core/routes/pages.dart';
 import 'package:third_exam/src/core/theme/app_colors.dart';
+import 'package:third_exam/src/features/account_flow/presentation/widgets/select_credit_card.dart';
 
-class CongratulatePage extends StatefulWidget {
-  const CongratulatePage({super.key});
+class SelectCardMethodsPage extends StatefulWidget {
+  const SelectCardMethodsPage({super.key});
 
   @override
-  State<CongratulatePage> createState() => _CongratulatePageState();
+  State<SelectCardMethodsPage> createState() => _SelectCardMethodsPageState();
 }
 
-class _CongratulatePageState extends State<CongratulatePage> {
+class _SelectCardMethodsPageState extends State<SelectCardMethodsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,41 +20,28 @@ class _CongratulatePageState extends State<CongratulatePage> {
       body: Padding(
         padding: .all(16),
         child: Column(
-          crossAxisAlignment: .center,
+          crossAxisAlignment: .start,
           children: [
-            Padding(padding: .only(top: 100)),
-            Image.asset(
-              'assets/images/check.png',
-              color: AppColors.white,
-              height: 100,
-              width: 100,
-              fit: .fill,
-            ),
-            SizedBox(height: 40),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                'We’re giving you Premium\n access for 3 days, for free',
-                style: GoogleFonts.poppins(
-                  color: AppColors.white,
-                  fontSize: 24,
-                  fontWeight: .bold,
-                ),
+            Text(
+              'Select Card',
+              style: GoogleFonts.poppins(
+                color: AppColors.white,
+                fontSize: 24,
+                fontWeight: .bold,
               ),
             ),
             SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                'Ulimited insights from books, courses\n      documentaries, and podcasts.',
-                style: GoogleFonts.poppins(color: AppColors.grey1),
-              ),
+            Text(
+              'Ulimited insights from books, courses documentaries, and podcasts.',
+              style: GoogleFonts.poppins(color: AppColors.grey1),
             ),
+            SizedBox(height: 32),
+            SelectCreditCard(),
             Spacer(),
             InkWell(
               borderRadius: .circular(100),
               onTap: () {
-                context.push(Pages.premiumOverview);
+                context.push(Pages.premiumConguratulate);
               },
               child: Container(
                 height: 48,

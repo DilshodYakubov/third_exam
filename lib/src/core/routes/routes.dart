@@ -3,11 +3,14 @@ import 'package:go_router/go_router.dart';
 import 'package:third_exam/src/core/routes/pages.dart';
 import 'package:third_exam/src/features/account_flow/presentation/pages/account_page.dart';
 import 'package:third_exam/src/features/account_flow/presentation/pages/add_payment_methos.dart';
+import 'package:third_exam/src/features/account_flow/presentation/pages/congratulate_page.dart';
 import 'package:third_exam/src/features/account_flow/presentation/pages/payment_page.dart';
 import 'package:third_exam/src/features/account_flow/presentation/pages/premium_add_payment_method.dart';
 import 'package:third_exam/src/features/account_flow/presentation/pages/premium_plan_details_page.dart';
+import 'package:third_exam/src/features/account_flow/presentation/pages/premium_plans_overview.dart';
 import 'package:third_exam/src/features/account_flow/presentation/pages/premium_plans_page.dart';
 import 'package:third_exam/src/features/account_flow/presentation/pages/profile_details.dart';
+import 'package:third_exam/src/features/account_flow/presentation/pages/select_card_methods_page.dart';
 import 'package:third_exam/src/features/auth/presentation/session/user_session.dart';
 import 'package:third_exam/src/features/auth/presentation/pages/code_page.dart';
 import 'package:third_exam/src/features/auth/presentation/pages/code_verified_page.dart';
@@ -135,17 +138,29 @@ class Routes {
         ],
       ),
       GoRoute(
-        path: Pages.premium,
-        builder: (context, state) => PremiumPlansPage(),
-      ),
-      GoRoute(
         path: Pages.premiumAddpayment,
         builder: (context, state) => PremiumAddPaymentMethod(),
       ),
 
       GoRoute(
+        path: Pages.premium,
+        builder: (context, state) => PremiumPlansPage(),
+      ),
+      GoRoute(
         path: Pages.premiumDetails,
         builder: (context, state) => PremiumPlanDetailsPage(),
+      ),
+      GoRoute(
+        path: Pages.premiumSelectCard,
+        builder: (context, state) => SelectCardMethodsPage(),
+      ),
+      GoRoute(
+        path: Pages.premiumConguratulate,
+        builder: (context, state) => CongratulatePage(),
+      ),
+      GoRoute(
+        path: Pages.premiumOverview,
+        builder: (context, state) => PremiumPlansOverview(),
       ),
     ],
   );

@@ -17,10 +17,13 @@ class Pages {
   static const String profile = 'profile_details';
   static const String payment = 'payment';
   static const String addPayment = 'add_payment';
-  //Account_pages--------------------------------------------
+  //Premium_pages--------------------------------------------
   static const String premium = '/premium';
   static const String premiumDetails = '/premium_details';
-  static const String premiumAddpayment = 'premium_add_payment';
+  static const String premiumAddpayment = '/premium_add_payment';
+  static const String premiumSelectCard = '/premium_select_card';
+  static const String premiumConguratulate = '/premium_conguratulate';
+  static const String premiumOverview = '/premium_overview';
 
   //Explore_pages ------------------------------------------
   static const String productsListing = '/products_listing';
