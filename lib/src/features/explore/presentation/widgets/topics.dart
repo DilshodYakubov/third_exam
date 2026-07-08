@@ -15,7 +15,7 @@ class _TopicsState extends State<Topics> {
   final List<String> topics = [
     'Personal growth',
     'Culture & Society',
-    'Fiction',    
+    'Fiction',
     'Mind & Philosophy',
     'Health & Fitness',
     'Biographies',
@@ -41,7 +41,7 @@ class _TopicsState extends State<Topics> {
               child: Chip(
                 label: Text(
                   topic,
-                  style: GoogleFonts.poppins(color: AppColors.grey2),
+                  style: GoogleFonts.poppins(color: AppColors.grey1),
                 ),
                 backgroundColor: AppColors.grey4,
                 side: BorderSide(color: AppColors.grey4),
