@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:third_exam/src/core/routes/pages.dart';
 import 'package:third_exam/src/core/theme/app_colors.dart';
-import 'package:third_exam/src/features/account_flow/presentation/widgets/select_credit_card.dart';
+import 'package:third_exam/src/features/payment_flow/presentation/widgets/select_credit_card.dart';
 
 class SelectCardMethodsPage extends StatefulWidget {
   const SelectCardMethodsPage({super.key});

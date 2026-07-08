@@ -82,7 +82,7 @@ class BoxNexus2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 36,
+      height: 42,
       width: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.bgDark,
