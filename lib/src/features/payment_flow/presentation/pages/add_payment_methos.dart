@@ -11,6 +11,28 @@ class AddPaymentMethos extends StatefulWidget {
 }
 
 class _AddPaymentMethosState extends State<AddPaymentMethos> {
+  final TextEditingController _cardController = TextEditingController();
+  bool _isNotEmpty = false;
+
+  @override
+  void initState() {
+    _cardController.addListener(() {
+      final notEmpty = _cardController.text.trim().isNotEmpty;
+      if (notEmpty != _isNotEmpty) {
+        setState(() {
+          _isNotEmpty = notEmpty;
+        });
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _cardController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +79,7 @@ class _AddPaymentMethosState extends State<AddPaymentMethos> {
             SizedBox(height: 32),
             TextField(
               style: GoogleFonts.poppins(color: AppColors.grey1),
-              controller: TextEditingController(),
+              controller: _cardController,
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
                   borderRadius: .circular(10),
@@ -73,6 +95,12 @@ class _AddPaymentMethosState extends State<AddPaymentMethos> {
                 ),
                 fillColor: AppColors.grey4,
                 filled: true,
+                suffixIcon: Padding(
+                  padding: const EdgeInsets.only(right: 5),
+                  child: _isNotEmpty
+                      ? Image.asset('assets/images/visa_card.png')
+                      : null,
+                ),
               ),
             ),
             SizedBox(height: 16),

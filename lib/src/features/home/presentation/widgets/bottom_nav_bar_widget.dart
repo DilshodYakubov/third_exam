@@ -36,25 +36,30 @@ class BottomNavBarWidget extends StatelessWidget {
         paymentPage ||
         premiumPage;
     return Scaffold(
+      backgroundColor: AppColors.black,
       body: navigationShell,
-      bottomNavigationBar: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ValueListenableBuilder<bool>(
-            valueListenable: MiniPlayerVisibility.isVisible,
-            builder: (context, visible, child) {
-              final shouldShow = visible && !hidePlayer;
-              return AnimatedSize(
-                duration: const Duration(milliseconds: 200),
-                child: shouldShow ? const MiniPlayer() : const SizedBox(),
-              );
-            },
-          ),
-          BottomNavBarWidget2(
-            currentIndex: navigationShell.currentIndex,
-            onTap: _onTap,
-          ),
-        ],
+      bottomNavigationBar: Container(
+        width: double.infinity,
+        color: AppColors.black,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ValueListenableBuilder<bool>(
+              valueListenable: MiniPlayerVisibility.isVisible,
+              builder: (context, visible, child) {
+                final shouldShow = visible && !hidePlayer;
+                return AnimatedSize(
+                  duration: const Duration(milliseconds: 200),
+                  child: shouldShow ? const MiniPlayer() : const SizedBox(),
+                );
+              },
+            ),
+            BottomNavBarWidget2(
+              currentIndex: navigationShell.currentIndex,
+              onTap: _onTap,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -70,139 +75,74 @@ class BottomNavBarWidget2 extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        GestureDetector(
-          onTap: () => onTap(0),
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 220),
-            height: 95,
-            width: 166,
-            padding: const EdgeInsets.only(top: 10),
-            decoration: BoxDecoration(
-              gradient: currentIndex == 0
-                  ? LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        AppColors.gradient,
-                        AppColors.gradient2,
-                        AppColors.gradient3,
-                      ],
-                    )
-                  : null,
-              color: currentIndex == 0 ? null : AppColors.black,
-            ),
-            child: Center(
-              child: Column(
-                children: [
-                  Image.asset(
-                    'assets/images/home.png',
-                    color: currentIndex == 0
-                        ? AppColors.accentGreen
-                        : AppColors.grey1,
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    'Home',
-                    style: GoogleFonts.poppins(
-                      color: currentIndex == 0
-                          ? AppColors.accentGreen
-                          : AppColors.grey1,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+  Widget _buildTab({
+    required int index,
+    required String assetPath,
+    required String label,
+  }) {
+    final selected = currentIndex == index;
+    return Expanded(
+      child: GestureDetector(
+        onTap: () => onTap(index),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 220),
+          height: 95,
+          width: double.infinity,
+          padding: const EdgeInsets.only(top: 10),
+          decoration: BoxDecoration(
+            gradient: selected
+                ? LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      AppColors.gradient,
+                      AppColors.gradient2,
+                      AppColors.gradient3,
+                    ],
+                  )
+                : null,
+            color: selected ? null : AppColors.black,
           ),
-        ),
-        GestureDetector(
-          onTap: () => onTap(1),
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 220),
-            height: 95,
-            width: 167,
-            padding: const EdgeInsets.only(top: 10),
-            decoration: BoxDecoration(
-              gradient: currentIndex == 1
-                  ? LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        AppColors.gradient,
-                        AppColors.gradient2,
-                        AppColors.gradient3,
-                      ],
-                    )
-                  : null,
-              color: currentIndex == 1 ? null : AppColors.black,
-            ),
+          child: Center(
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset(
-                  'assets/images/search.png',
-                  color: currentIndex == 1
-                      ? AppColors.accentGreen
-                      : AppColors.grey1,
+                  assetPath,
+                  color: selected ? AppColors.accentGreen : AppColors.grey1,
+                  height: 20,
+                  width: 20,
+                  fit: .fitHeight,
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  'Explore',
+                  label,
                   style: GoogleFonts.poppins(
-                    color: currentIndex == 1
-                        ? AppColors.accentGreen
-                        : AppColors.grey1,
+                    color: selected ? AppColors.accentGreen : AppColors.grey1,
                   ),
                 ),
               ],
             ),
           ),
         ),
-        GestureDetector(
-          onTap: () => onTap(2),
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 220),
-            height: 95,
-            width: 167,
-            padding: const EdgeInsets.only(top: 10),
-            decoration: BoxDecoration(
-              gradient: currentIndex == 2
-                  ? LinearGradient(
-                      colors: [
-                        AppColors.gradient,
-                        AppColors.gradient2,
-                        AppColors.gradient3,
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    )
-                  : null,
-              color: currentIndex == 2 ? null : AppColors.black,
-            ),
-            child: Center(
-              child: Column(
-                children: [
-                  Image.asset(
-                    'assets/images/books.png',
-                    color: currentIndex == 2
-                        ? AppColors.accentGreen
-                        : AppColors.grey1,
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    'Library',
-                    style: GoogleFonts.poppins(
-                      color: currentIndex == 2
-                          ? AppColors.accentGreen
-                          : AppColors.grey1,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        _buildTab(index: 0, assetPath: 'assets/images/home.png', label: 'Home'),
+        _buildTab(
+          index: 1,
+          assetPath: 'assets/images/search.png',
+          label: 'Explore',
+        ),
+        _buildTab(
+          index: 2,
+          assetPath: 'assets/images/books.png',
+          label: 'Library',
         ),
       ],
     );

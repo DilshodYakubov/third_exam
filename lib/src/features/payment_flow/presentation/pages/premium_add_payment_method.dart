@@ -13,6 +13,28 @@ class PremiumAddPaymentMethod extends StatefulWidget {
 }
 
 class _PremiumAddPaymentMethodState extends State<PremiumAddPaymentMethod> {
+  final TextEditingController _cardController = TextEditingController();
+  bool _isNotEmpty = false;
+
+  @override
+  void initState() {
+    _cardController.addListener(() {
+      final notEmpty = _cardController.text.trim().isNotEmpty;
+      if (notEmpty != _isNotEmpty) {
+        setState(() {
+          _isNotEmpty = notEmpty;
+        });
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _cardController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +47,7 @@ class _PremiumAddPaymentMethodState extends State<PremiumAddPaymentMethod> {
             Text(
               'Add payment method',
               style: GoogleFonts.poppins(
-                color: AppColors.accentGreen,
+                color: AppColors.white,
                 fontSize: 24,
                 fontWeight: .bold,
               ),
@@ -36,9 +58,10 @@ class _PremiumAddPaymentMethodState extends State<PremiumAddPaymentMethod> {
               style: GoogleFonts.poppins(color: AppColors.grey1),
             ),
             SizedBox(height: 32),
+            //------------------------------------------------------------------
             TextField(
               style: GoogleFonts.poppins(color: AppColors.grey1),
-              controller: TextEditingController(),
+              controller: _cardController,
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
                   borderRadius: .circular(10),
@@ -54,6 +77,12 @@ class _PremiumAddPaymentMethodState extends State<PremiumAddPaymentMethod> {
                 ),
                 fillColor: AppColors.grey4,
                 filled: true,
+                suffixIcon: Padding(
+                  padding: const EdgeInsets.only(right: 5),
+                  child: _isNotEmpty
+                      ? Image.asset('assets/images/visa_card.png')
+                      : null,
+                ),
               ),
             ),
             SizedBox(height: 16),
