@@ -20,31 +20,35 @@ class AppContainers extends StatelessWidget {
         separatorBuilder: (context, index) => SizedBox(height: 16),
         itemCount: items.length,
         itemBuilder: (context, index) {
-          return Container(
-            height: 48,
-            width: double.infinity,
-            padding: .only(left: 16),
-            decoration: BoxDecoration(
-              borderRadius: .circular(10),
-              color: AppColors.white,
-            ),
-            child: Row(
-              mainAxisAlignment: .spaceBetween,
-              children: [
-                Image.asset(
-                  items[index]['images'] ?? '',
-                  height: 24,
-                  width: 24,
-                ),
-                Text(
-                  items[index]['title'] ?? '',
-                  style: GoogleFonts.poppins(
-                    color: AppColors.grey4,
-                    fontWeight: .bold,
+          return InkWell(
+            onTap: () {},
+            borderRadius: .circular(100),
+            child: Container(
+              height: 48,
+              width: double.infinity,
+              padding: .only(left: 16),
+              decoration: BoxDecoration(
+                borderRadius: .circular(10),
+                color: AppColors.white,
+              ),
+              child: Row(
+                mainAxisAlignment: .spaceBetween,
+                children: [
+                  Image.asset(
+                    items[index]['images'] ?? '',
+                    height: 24,
+                    width: 24,
                   ),
-                ),
-                SizedBox(height: 40, width: 40),
-              ],
+                  Text(
+                    items[index]['title'] ?? '',
+                    style: GoogleFonts.poppins(
+                      color: AppColors.grey4,
+                      fontWeight: .bold,
+                    ),
+                  ),
+                  SizedBox(height: 40, width: 40),
+                ],
+              ),
             ),
           );
         },

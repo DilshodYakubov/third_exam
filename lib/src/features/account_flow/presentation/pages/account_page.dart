@@ -125,7 +125,9 @@ class _AccountPageState extends State<AccountPage> {
               AccountOptions(
                 icon: Icon(Icons.star_outline, color: AppColors.accentGreen),
                 text: "Subscription",
-                ontap: () {},
+                ontap: () {
+                  context.push(Pages.premium);
+                },
               ),
               SizedBox(height: 24),
               Divider(color: AppColors.grey4),
